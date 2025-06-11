@@ -1548,6 +1548,19 @@ button,
     font-size: 1em;
     height: 3.65em;
     line-height: 3.65em; }
+  input[type="submit"].registration,
+  input[type="reset"].registration,
+  input[type="button"].registration,
+  button.registration,
+  .button.registration {
+    background-color: #f56a6a;
+    box-shadow: none;
+    color: #ffffff !important; 
+    height: 90px;
+    width: 250px;
+    font-size: 1.5em;
+    align-items: center;        /* pusatkan vertikal */
+    text-align: center;         /* jika ada teks multi-baris */}
   input[type="submit"].primary,
   input[type="reset"].primary,
   input[type="button"].primary,
@@ -2280,4 +2293,36 @@ button,
   vertical-align: middle;
   position: relative; /* ubah ke absolute jika perlu lebih bebas */
   z-index: 10; /* nilai lebih tinggi akan tampil di depan elemen lain */
+}
+
+.countdown-timer {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.countdown-timer .cd-item {
+	display: inline-block;
+	background: #ffffff;
+	margin-right: 35px;
+	padding: 10px 14px;
+	border-radius: 5px;
+}
+
+.countdown-timer .cd-item:last-child {
+	margin-right: 0;
+}
+
+.countdown-timer .cd-item span {
+	color: #ff4d4d;
+	font-weight: 700;
+	line-height: 40px;
+	font-size: 64px;
+}
+
+.countdown-timer .cd-item p {
+	font-size: 20px;
+	color: #b2b2b2;
+	margin-bottom: 0;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
 }

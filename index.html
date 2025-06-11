@@ -54,6 +54,53 @@
 							<!-- Section -->
 								<section>
 									<header class="major">
+										<h2>Countdown to Event</h2>
+									</header>
+									<!-- <div class="container">
+										<div id="countdown">
+											<ul>
+												<li class="countdown"><span id="days"></span>days</li>
+												<li class="countdown"><span id="hours"></span>Hours</li>
+												<li class="countdown"><span id="minutes"></span>Minutes</li>
+												<li class="countdown"><span id="seconds"></span>Seconds</li>
+											</ul>
+										</div>
+									</div> -->
+
+									<div class="container">
+										<div class="col-lg-6 text-center">
+											<div class="countdown-timer" id="countdown">
+												<img src="images/activity1.png" alt="" />
+												<h2 style="padding: 20px;">Collaboration</h2>
+											</div>
+											<div class="countdown-timer" id="countdown">
+												<div class="cd-item">
+													<span id="days"></span>
+													<p>Days</p>
+												</div>
+												<div class="cd-item">
+													<span id="hours"></span>
+													<p>Hours</p>
+												</div>
+												<div class="cd-item">
+													<span id="minutes"></span>
+													<p>Minutes</p>
+												</div>
+												<div class="cd-item">
+													<span id="seconds"></span>
+													<p>Seconds</p>
+												</div>
+											</div>
+											<div class="countdown-timer" id="countdown">
+												<a href="#" class="button registration" >Large</a>
+											</div>
+										</div>
+									</div>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
 										<h2>Our Commitment to Impact</h2>
 									</header>
 									<div class="features">
@@ -318,7 +365,7 @@
 					</div>
 
 				<!-- Sidebar -->
-					<div id="sidebar">
+					<div id="sidebar" class="inactive">
 						<div class="inner">
 
 							<!-- Search -->
@@ -417,6 +464,74 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<!-- <script>
+				// Set tanggal target countdown (1 Juli 2025 10:00:00 WIB)
+				const targetDate = new Date("July 1, 2025 10:00:00 GMT+0700").getTime();
 
+				const countdown = setInterval(function () {
+					const now = new Date().getTime();
+					const distance = targetDate - now;
+
+					if (distance < 0) {
+					clearInterval(countdown);
+					document.getElementById("timer").innerHTML = "Acara telah dimulai!";
+					return;
+					}
+
+					const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+					const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+					const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+					const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+					document.getElementById("timer").innerHTML = 
+					days + " hari " + 
+					hours + " jam " + 
+					minutes + " menit " + 
+					seconds + " detik";
+				}, 1000);
+			</script> -->
+			<script>
+				const second = 1000,
+						minute = second * 60,
+						hour = minute * 60,
+						day = hour * 24;
+
+				//I'm adding this section so I don't have to keep updating this pen every year :-)
+				//remove this if you don't need it
+				let today = new Date(),
+					dd = String(today.getDate()).padStart(2, "0"),
+					mm = String(today.getMonth() + 1).padStart(2, "0"),
+					yyyy = today.getFullYear(),
+					nextYear = yyyy + 1,
+					dayMonth = "06/15/",
+					birthday = dayMonth + yyyy;
+				
+				today = mm + "/" + dd + "/" + yyyy;
+				if (today > birthday) {
+					birthday = dayMonth + nextYear;
+				}
+				//end
+				
+				const countDown = new Date(birthday).getTime(),
+					x = setInterval(function() {    
+
+						const now = new Date().getTime(),
+							distance = countDown - now;
+
+						document.getElementById("days").innerText = Math.floor(distance / (day)),
+						document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+						document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+						document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+						//do something later when date is reached
+						if (distance < 0) {
+							document.getElementById("headline").innerText = "It's my birthday!";
+							document.getElementById("countdown").style.display = "none";
+							document.getElementById("content").style.display = "block";
+							clearInterval(x);
+						}
+						//seconds
+					}, 0)
+			</script>
 	</body>
 </html>
