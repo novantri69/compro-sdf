@@ -1556,8 +1556,8 @@ button,
     background-color: #f56a6a;
     box-shadow: none;
     color: #ffffff !important; 
-    height: 90px;
-    width: 250px;
+    height: 80px;
+    width: 180px;
     font-size: 1.5em;
     align-items: center;        /* pusatkan vertikal */
     text-align: center;         /* jika ada teks multi-baris */}
@@ -1639,6 +1639,17 @@ button,
       margin-left: 1.5em; }
     .features article:nth-last-child(1), .features article:nth-last-child(2) {
       margin-bottom: 0; }
+    .features article .container {
+      flex-grow: 1;
+      flex-shrink: 1;
+      min-width: 0;
+    }
+    .features article .container p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #333;
+    }
     .features article .icon {
       -moz-flex-grow: 0;
       -webkit-flex-grow: 0;
@@ -1721,6 +1732,14 @@ button,
       -webkit-align-items: -webkit-flex-start;
       -ms-align-items: -ms-flex-start;
       align-items: flex-start; }
+      .features article span .icon-imgs {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+      }
+      .features article .container {
+        width: 100%;
+      }
       .features article .icon {
         height: 6em;
         line-height: 6em;
@@ -2295,12 +2314,32 @@ button,
   z-index: 10; /* nilai lebih tinggi akan tampil di depan elemen lain */
 }
 
+.icon-imgs {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
 .countdown-timer {
-	text-align: center;
-	margin-bottom: 50px;
+	/* text-align: center;
+	margin-bottom: 50px; */
+
+  width: 100%;
+  max-width: 600px; /* optional max-width */
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.countdown-timer .cd-item {
+.countdown-timer img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* .countdown-timer .cd-item {
 	display: inline-block;
 	background: #ffffff;
 	margin-right: 35px;
@@ -2308,21 +2347,97 @@ button,
 	border-radius: 5px;
 }
 
-.countdown-timer .cd-item:last-child {
-	margin-right: 0;
-}
-
 .countdown-timer .cd-item span {
-	color: #ff4d4d;
+  color: #ff4d4d;
 	font-weight: 700;
 	line-height: 40px;
 	font-size: 64px;
 }
 
 .countdown-timer .cd-item p {
-	font-size: 20px;
+  font-size: 20px;
 	color: #b2b2b2;
 	margin-bottom: 0;
 	text-transform: uppercase;
 	letter-spacing: 1.5px;
+} */
+
+.countdown-timer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.countdown-timer .cd-item {
+  display: inline-block;
+  background: #ffffff;
+  padding: 10px 14px;
+  border-radius: 5px;
+  flex: 1 1 100px;
+  max-width: 120px;
+}
+
+.countdown-timer .cd-item span {
+  color: #ff4d4d;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 48px;
+}
+
+.countdown-timer .cd-item p {
+  font-size: 16px;
+  color: #b2b2b2;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* .countdown-timer h2 {
+  color: #3d4449;
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 1em 0; 
+  font-size: 1.75em;
+} */
+
+/* ✅ Responsive for smaller screens */
+@media (max-width: 600px) {
+  .countdown-timer .cd-item {
+    max-width: 60px;
+    padding: 8px 10px;
+  }
+
+  .countdown-timer .cd-item span {
+    font-size: 32px;
+  }
+
+  .countdown-timer .cd-item p {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+}
+
+.countdown-timer .cd-item:last-child {
+  margin-right: 0;
+}
+
+/* Flex container */
+.col-6.col-12-small {
+  display: flex;
+  align-items: flex-start; /* sejajarkan vertikal */
+  gap: 15px; /* jarak antara gambar dan teks */
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+/* Teks container mengisi ruang sisa */
+.col-6.col-12-small .container {
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0;
+  padding-bottom: 20px;
 }
